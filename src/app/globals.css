@@ -1,3 +1,7 @@
-.nav-link {
-  @apply px-3 py-2 rounded-lg text-sm font-medium hover:bg-gray-200 transition;
+@import "tailwindcss";
+
+@layer components {
+  .nav-link {
+    @apply px-3 py-2 rounded-lg text-sm font-medium hover:bg-gray-200 transition;
+  }
 }
