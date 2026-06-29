@@ -18,7 +18,7 @@ import {
 import { Application } from "@/types/application";
 import { api } from "@/services/api";
 import { getApplications } from "../applications/services";
-import { getAuditLogs } from "../audit/services";
+import { getAuditLogs } from "../admin/services";
 
 // Mock Data for Dashboard Summary Cards
 const STATS = {
