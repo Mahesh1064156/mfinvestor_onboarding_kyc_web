@@ -2,22 +2,30 @@
 
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
+import axios  from 'axios';
+import { axios_apibase_url } from '@/services/api';
 
 export default function LoginPage() {
   const router = useRouter();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
-  const handleLogin = async () => {
-    // Call your API here
-    if (email === 'admin@test.com' && password === '123456') {
-      localStorage.setItem('token', 'dummy-token');
-      router.push('/dashboard');
+const handleLogin = async () => {
+  try {
+    const res = await axios_apibase_url.post("/login", {
+      email,
+      password
+    });
+    localStorage.setItem("token", res.data.token);
+    router.push("/dashboard");
+  } catch (error) {
+    if (axios.isAxiosError(error)) {
+      alert(error.response?.data?.message || "Login failed");
     } else {
-      alert('Invalid credentials');
+      alert("Unexpected error");
     }
-  };
-
+  }
+};
   return (
     <div style={{ display: 'flex', height: '100vh', justifyContent: 'center', alignItems: 'center' }}>
       <div>

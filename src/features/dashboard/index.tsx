@@ -16,7 +16,6 @@ import {
   RefreshCw,
 } from "lucide-react";
 import { Application } from "@/types/application";
-import { api } from "@/services/api";
 import { getApplications } from "../applications/services";
 import { getAuditLogs } from "../admin/services";
 
